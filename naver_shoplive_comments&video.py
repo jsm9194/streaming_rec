@@ -47,7 +47,7 @@ def crawl_comments(driver, comments_data, stop_flag_ref):
 
 def save_comments(csv_path, comments_data):
     with open(csv_path, 'w', newline='', encoding='utf-8-sig') as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         writer.writerow(['timestamp', 'nickname', 'comment'])
         writer.writerows(comments_data)
     print(f"✅ 댓글 {len(comments_data)}개 저장 → {csv_path}")
